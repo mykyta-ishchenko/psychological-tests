@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ label }}
+{% endblock title %}
+
+{% block body %}
+    <div class="tests-list">
+        {{ body | safe }}
+    </div>
+{% endblock body %}

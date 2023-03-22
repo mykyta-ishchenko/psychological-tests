@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ title }}
+{% endblock title %}
+
+{% block body %}
+    <div class="test">
+        <p class="title-name">{{ title }} - Результат</p>
+        <div class="">
+
+            {{ body | safe }}
+
+            <div class="d-grid gap-2">
+                <button class="send btn bg-dark text-white btn-lg" onclick="window.location.href=window.location.href">
+                    Пройти ще раз
+                </button>
+            </div>
+        </div>
+    </div>
+{% endblock body %}

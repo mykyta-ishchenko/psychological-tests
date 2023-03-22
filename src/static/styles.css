@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@400;800;900&display=swap');
+
+
+.test {
+    padding: 30px 5px;
+}
+
+.question {
+    padding: 15px;
+    border-radius: 5px;
+    margin: 15px;
+    background-color: white;
+}
+
+.question-text p {
+    font-family: 'Fira Sans Condensed', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.test {
+    background-color: #f7dd56;
+}
+
+.title-name {
+    padding: 30px;
+    font-family: 'Fira Sans Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 40px;
+}
+
+.send {
+    padding: 30px;
+}
+
+
+.phase, .info, .parameters {
+    background-color: white;
+    padding: 30px;
+    border-radius: 5px;
+    margin: 20px;
+}
+
+.phase p {
+    font-family: 'Fira Sans Condensed', sans-serif;
+    font-size: 25px;
+    font-weight: 800;
+    vertical-align: center;
+    margin: 0;
+}
+
+.phase .other {
+    background-color: #cecece;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0 0;
+}
+
+.phase .other div {
+    padding: 3px;
+}
+
+.phase .other p, .info p, .parameters p {
+    font-family: 'Fira Sans Condensed', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    text-align: justify;
+}
+
+.count {
+    display: inline-block;
+}
+
+.phase .count p {
+    color: #d2273b;
+}
+
+.parameters .count p {
+    color: #d2273b;
+}
+
+.name {
+    display: inline-block;
+}

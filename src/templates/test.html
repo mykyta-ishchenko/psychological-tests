@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ title }}
+{% endblock title %}
+
+{% block body %}
+    <div class="test">
+    <p class="title-name">{{ title }}</p>
+        <div class="">
+            <form action="" method="post">
+                {{ body | safe }}
+
+                <div class="d-grid gap-2">
+                    <input class="send btn bg-dark text-white btn-lg" type="submit" value="Отримати результат">
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock body %}
