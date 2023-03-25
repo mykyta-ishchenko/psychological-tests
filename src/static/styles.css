@@ -1,23 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@400;800;900&display=swap');
 
 
-.question {
-    padding: 15px;
-    margin: 15px;
-}
-
-.question-text p {
-    font-size: 20px;
-    font-weight: 400;
-}
-
-
 /*For all*/
 
 html, body {
-    background-color: white;
+    background-color: #f0f0f0;
     margin: 0;
     padding: 0;
+}
+
+body {
+    min-height: 100vh;
 }
 
 header, .home, .tests-list, .test, .result {
@@ -105,6 +98,16 @@ header, .home, .tests-list, .test, .result {
     padding: 30px 5px 5px;
     max-width: 1000px;
     margin: 10px auto 0;
+}
+
+.question {
+    padding: 15px;
+    margin: 15px;
+}
+
+.question-text p {
+    font-size: 20px;
+    font-weight: 400;
 }
 
 .question .text-center .btn-group {
