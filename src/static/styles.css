@@ -55,7 +55,6 @@ header, .home, .tests-list, .test, .result {
 }
 
 
-
 .tests-list {
     max-width: 1000px;
     padding: 20px 20px 5px;
@@ -68,8 +67,6 @@ header, .home, .tests-list, .test, .result {
     font-weight: 800;
     margin: 15px 15px 20px;
 }
-
-
 
 
 .form-label a {
@@ -110,9 +107,13 @@ header, .home, .tests-list, .test, .result {
     margin: 10px auto 0;
 }
 
+.question .text-center .btn-group {
+    width: 30%;
+}
 
 
 /* Results */
+
 .result {
     padding: 30px;
 }
@@ -159,4 +160,12 @@ header, .home, .tests-list, .test, .result {
 
 .float-right {
     float: right;
+}
+
+
+/* Mobile */
+@media only screen and (max-width: 600px) {
+    .question .text-center .btn-group {
+        width: 100%;
+    }
 }

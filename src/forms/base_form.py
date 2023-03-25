@@ -1,6 +1,10 @@
+import os
 from typing import Dict
+
+import markdown
 import pandas as pd
-from .models import Question, AnswerType
+
+from .models import AnswerType, Question
 
 
 class BaseForm:
@@ -8,16 +12,16 @@ class BaseForm:
     display_name = "Base Test Form"
     questions = []
     type = AnswerType.choice
-    path = None
-    processing_info = ""
+    source_path = "data/source.csv"
+    info_path = "data/processing.md"
 
     def __init__(self):
-        if self.path:
+        if self.source_path:
             self.load()
 
     def load(self) -> None:
         self.questions = []
-        df = pd.read_csv(self.path)
+        df = pd.read_csv(self.base_path + self.source_path)
         for index, row in df.iterrows():
             answers = []
 
@@ -32,8 +36,15 @@ class BaseForm:
                 Question(row["Question"], answers, index + 1)
             )
 
-    def to_html(self) -> str:
-        return self.display_name
-
-    def process_result(self, response: Dict[str, str]) -> str:
+    def process_result(self, response: Dict[str, str]) -> Dict:
         pass
+
+    @property
+    def info(self):
+        if not self.info_path:
+            return ""
+        return markdown.markdown(open(self.base_path + self.info_path).read())
+
+    @property
+    def base_path(self):
+        return os.path.dirname(os.path.realpath(__file__)) + "/" + self.name + "/"

@@ -24,7 +24,7 @@ def test(test_name: str):
         return render_template("result.html",
                                label=form.display_name,
                                response=result,
-                               info=form.processing_info
+                               info=form.info
                                )
 
     return render_template("test.html",

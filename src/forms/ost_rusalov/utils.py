@@ -1,17 +1,3 @@
-import re
-from typing import Dict, Tuple, List
-
-
-def points_sum(points: Dict[bool, List[int]], response: Dict[int, bool]):
-    plus = [1 for el in points[True] if response[el]]
-    minus = [1 for el in points[False] if not response[el]]
-    return len(plus) + len(minus)
-
-
-def calculate_parameters(response: Dict[int, bool]):
-    return {key: points_sum(value, response) for key, value in parameters.items()}
-
-
 parameters = {
     "Ергічність (Ер)":
         {

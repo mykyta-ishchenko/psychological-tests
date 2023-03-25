@@ -21,13 +21,27 @@
                         {#True or False#}
                         {% if form.type.value == "true_or_false" %}
                             <div class="text-center">
-                                <div class="btn-group w-25" role="group">
+                                <div class="btn-group" role="group">
                                     <input type="radio" class="btn-check" name="{{ q.number }}"
                                            id="{{ q.number ~ "_true" }}" autocomplete="off" value=true checked>
                                     <label class="btn btn-outline-primary" for="{{ q.number ~ "_true" }}">Так</label>
                                     <input type="radio" class="btn-check" name="{{ q.number }}"
                                            id="{{ q.number ~ "_false" }}" autocomplete="off" value=false>
                                     <label class="btn btn-outline-primary" for="{{ q.number ~ "_false" }}">Ні</label>
+                                </div>
+                            </div>
+                        {% endif %}
+                        {% if form.type.value == "choice" %}
+                            <div class="text-center">
+                                <div class="btn-group" role="group">
+                                    {% for variant in q.variants %}
+                                        <input type="radio" class="btn-check" name="{{ q.number }}"
+                                               id="{{ q.number ~ loop.index }}" autocomplete="off" value=loop.index
+                                                {% if loop.index == 0 %} checked {% endif %}>
+                                        <label class="btn btn-outline-primary"
+                                               for="{{ q.number ~ loop.index }}">{{ variant }}
+                                        </label>
+                                    {% endfor %}
                                 </div>
                             </div>
                         {% endif %}
