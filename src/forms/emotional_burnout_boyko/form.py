@@ -4,8 +4,7 @@ from forms.base_form import BaseForm
 from forms.models import AnswerType, ProcessingTF
 from forms.utils import connect_to_upper_group
 
-from .utils import group_level_1
-from .utils import parameters as dict_params
+from .utils import group_level_1, parameters as dict_params
 
 
 class Form(BaseForm):
