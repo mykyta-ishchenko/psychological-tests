@@ -1,19 +1,43 @@
 {% extends "base.html" %}
 
 {% block title %}
-    {{ title }}
+    {{ label }}
 {% endblock title %}
+
+{% set c = namespace(val=1) %}
+
+{% macro print_level(body) %}
+    {% for k, v in body.items() %}
+        <p class="param-level param-level-{{ c.val }}">{{ k }}: <em>{{ v[0] }}</em></p>
+        {% if v[1] %}
+            {% set c.val = c.val + 1 %}
+            {{ print_level(v[1]) }}
+            {% set c.val = c.val - 1 %}
+        {% endif %}
+    {% endfor %}
+{% endmacro %}
 
 {% block body %}
     <div class="test">
-        <p class="title-name">{{ title }} - Результат</p>
-        <div class="">
+        <p class="test-display-name">{{ label }}</p>
+        <p class="disclaimer">* тест може надавати неточну або хибну інформацію. До результатів треба ставитись
+            зважливо. За потреби краще звернутися до спеціаліста.</p>
 
-            {{ body | safe }}
+        <p class="process-result">Результати</p>
 
-            <div class="d-grid gap-2">
-                <button class="send btn bg-dark text-white btn-lg" onclick="window.location.href=window.location.href">
-                    Пройти ще раз
+        <div class="result">
+            {{ print_level(response) }}
+
+            <p class="process-result">Опрацювання результатів</p>
+
+            <div class="info">
+                {{ info | safe }}
+            </div>
+            <hr>
+
+            <div class="row justify-content-end">
+                <button type="submit" class="btn btn-primary btn-lg"
+                        onclick="window.location.href=window.location.href">Пройти ще раз
                 </button>
             </div>
         </div>

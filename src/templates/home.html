@@ -5,7 +5,22 @@
 {% endblock title %}
 
 {% block body %}
-    <div class="tests-list">
-        {{ body | safe }}
+    <div class="home">
+        <div class="home-content">
+            <h2>Набір психологічних тестів</h2>
+            <h1>PsyTest</h1>
+        </div>
+    </div>
+
+
+    <div class="tests-list" id="tests">
+        <h3>Бібліотека тестів</h3>
+        <ul>
+            {% for form in forms %}
+                <li>
+                    <div class='form-label'><a href='test/{{ form.name }}'><p>{{ form.display_name }}</p></a></div>
+                </li>
+            {% endfor %}
+        </ul>
     </div>
 {% endblock body %}

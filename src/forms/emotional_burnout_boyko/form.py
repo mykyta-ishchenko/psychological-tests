@@ -3,31 +3,23 @@ from typing import Dict
 
 from forms.base_form import BaseForm
 
-from models.html import NameCountHtml, NumerateQuestionSingleAnswerHtml, TextFieldHtml
-from .utils import calculate_symptoms, processing_info, raw_phases
+from .utils import calculate_params, group_level_1, connect_to_upper_group
+
+from forms.models import AnswerType
+
+from markdown import markdown
 
 
 class Form(BaseForm):
     name = "emotional_burnout_boyko"
     display_name = "Методика діагностики рівня «емоційного вигорання» В.В. Бойка"
     path = os.path.dirname(os.path.realpath(__file__)) + "/source.csv"
+    type = AnswerType.tf
+    processing_info = markdown(open(os.path.dirname(os.path.realpath(__file__)) + "/processing.md").read())
 
-    def to_html(self):
-        return NumerateQuestionSingleAnswerHtml(self.questions).to_html()
-
-    def process_result(self, raw_response: Dict[str, str]) -> str:
-        response = {int(key): True if val == "0" else False for key, val in raw_response.items()}
-        symptoms = calculate_symptoms(response)
-        phases = {key: sum([symptoms[symptom] for symptom in value]) for key, value in raw_phases.items()}
-
-        body = ""
-
-        for phase, count in phases.items():
-            symptoms_generated = ""
-            for symptom in raw_phases[phase]:
-                symptoms_generated += NameCountHtml(symptom, symptoms[symptom]).to_html()
-            body += NameCountHtml(phase, count, symptoms_generated, "phase").to_html()
-
-        body += TextFieldHtml(processing_info, "info").to_html()
-
-        return f"<div class='result emotional_burnout_boyko'>{body}</div>"
+    def process_result(self, raw_response: Dict[str, str]) -> Dict:
+        print(raw_response)
+        response = {int(key): True if val == "true" else False for key, val in raw_response.items()}
+        params = calculate_params(response)
+        processed_groups = {key: sum([params[param] for param in value]) for key, value in group_level_1.items()}
+        return connect_to_upper_group(processed_groups, group_level_1, params)

@@ -9,7 +9,7 @@
     </title>
 
     {#    <link rel="icon" type="image/x-icon" href="{% static 'src/logo.png' %}">#}
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -23,9 +23,23 @@
 </head>
 <body>
 
+<header class="d-flex justify-content-center bg-primary py-3">
+    <ul class="nav nav-pills bg-primary">
+        <li class="nav-item"><a href="/" class="nav-link active" aria-current="page">Головна</a></li>
+        <li class="nav-item"><a href="/#tests" class="nav-link text-light">Тести</a></li>
+        <li class="nav-item"><a href="#" class="nav-link text-light">Про нас</a></li>
+    </ul>
+</header>
+
 {% block body %}
 
 {% endblock body %}
+
+<footer class="d-flex justify-content-center bg-primary py-3">
+    <ul class="nav nav-pills">
+        <li class="nav-item text-white">©️ PsyTests</li>
+    </ul>
+</footer>
 
 </body>
 </html>

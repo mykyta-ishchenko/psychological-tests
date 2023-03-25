@@ -1,18 +1,41 @@
 {% extends "base.html" %}
 
 {% block title %}
-    {{ title }}
+    {{ form.display_name }}
 {% endblock title %}
 
 {% block body %}
     <div class="test">
-    <p class="title-name">{{ title }}</p>
-        <div class="">
+        <p class="test-display-name">{{ form.display_name }}</p>
+        <p class="disclaimer">* тест може надавати неточну або хибну інформацію. До результатів треба ставитись
+            зважливо. За потреби краще звернутися до спеціаліста.</p>
+        <div class="test">
             <form action="" method="post">
-                {{ body | safe }}
 
-                <div class="d-grid gap-2">
-                    <input class="send btn bg-dark text-white btn-lg" type="submit" value="Отримати результат">
+                {% for q in form.questions %}
+                    <div class="question">
+                        <div class="question-text">
+                            <p>{{ q.number }}. {{ q.text }}</p>
+                        </div>
+
+                        {#True or False#}
+                        {% if form.type.value == "true_or_false" %}
+                            <div class="text-center">
+                                <div class="btn-group w-25" role="group">
+                                    <input type="radio" class="btn-check" name="{{ q.number }}"
+                                           id="{{ q.number ~ "_true" }}" autocomplete="off" value=true checked>
+                                    <label class="btn btn-outline-primary" for="{{ q.number ~ "_true" }}">Так</label>
+                                    <input type="radio" class="btn-check" name="{{ q.number }}"
+                                           id="{{ q.number ~ "_false" }}" autocomplete="off" value=false>
+                                    <label class="btn btn-outline-primary" for="{{ q.number ~ "_false" }}">Ні</label>
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <hr>
+                {% endfor %}
+                <div class="send row justify-content-end">
+                    <button type="submit" class="btn btn-primary btn-lg">Отримати результат</button>
                 </div>
             </form>
         </div>

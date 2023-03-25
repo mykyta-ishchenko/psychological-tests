@@ -1,84 +1,162 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@400;800;900&display=swap');
 
 
-.test {
-    padding: 30px 5px;
-}
-
 .question {
     padding: 15px;
-    border-radius: 5px;
     margin: 15px;
-    background-color: white;
 }
 
 .question-text p {
-    font-family: 'Fira Sans Condensed', sans-serif;
     font-size: 20px;
     font-weight: 400;
+}
+
+
+/*For all*/
+
+html, body {
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+
+header, .home, .tests-list, .test, .result {
+    font-family: 'Fira Sans Condensed', sans-serif;
+}
+
+
+/* Home page */
+
+.home {
+    margin: 30px auto;
+    text-align: center;
+    padding: 20px;
+    height: 70vh;
+    font-weight: 900;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.home h2 {
+    font-size: 70px;
+    font-weight: 800;
+}
+
+.home h1 {
+    color: #0d6efd;
+    font-size: 80px;
+    font-weight: 800;
+}
+
+.home-content {
+    margin: auto;
+}
+
+
+
+.tests-list {
+    max-width: 1000px;
+    padding: 20px 20px 5px;
+    margin: 30px auto;
+    border-radius: 10px;
+    border: 3px solid #0d6efd;
+}
+
+.tests-list h3 {
+    font-weight: 800;
+    margin: 15px 15px 20px;
+}
+
+
+
+
+.form-label a {
+    text-decoration: none;
+    color: black;
+}
+
+.form-label {
+    margin: 5px 15px;
+    font-size: 22px;
+    padding: 2px;
+}
+
+.form-label:hover {
+    text-decoration: underline 3px #0d6efd;
+}
+
+
+/* Questions */
+
+.test-display-name {
+    margin-top: 30px;
+    font-weight: 800;
+    font-size: 40px;
+    padding: 0 20px;
+}
+
+.disclaimer {
+    font-size: 15px;
+    font-style: italic;
+    color: #212121;
+    padding: 0 20px;
 }
 
 .test {
-    background-color: #f7dd56;
+    padding: 30px 5px 5px;
+    max-width: 1000px;
+    margin: 10px auto 0;
 }
 
-.title-name {
+
+
+/* Results */
+.result {
     padding: 30px;
-    font-family: 'Fira Sans Condensed', sans-serif;
-    font-weight: 900;
-    font-size: 40px;
+}
+
+.param-level-4 {
+    font-size: 16px;
+    margin-left: 150px;
+}
+
+.param-level-3 {
+    font-size: 18px;
+    margin-left: 100px;
+}
+
+.param-level-2 {
+    font-size: 20px;
+    margin-left: 50px;
+}
+
+.param-level-1 {
+    font-size: 22px;
 }
 
 .send {
-    padding: 30px;
+    padding: 15px 30px;
 }
 
-
-.phase, .info, .parameters {
-    background-color: white;
-    padding: 30px;
-    border-radius: 5px;
-    margin: 20px;
+.process-result {
+    margin-top: 40px;
+    font-size: 30px;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+    color: #0d6efd;
 }
 
-.phase p {
-    font-family: 'Fira Sans Condensed', sans-serif;
-    font-size: 25px;
-    font-weight: 800;
-    vertical-align: center;
-    margin: 0;
-}
-
-.phase .other {
-    background-color: #cecece;
+.info {
+    font-size: 18px;
     padding: 10px;
-    border-radius: 5px;
-    margin: 10px 0 0;
 }
 
-.phase .other div {
-    padding: 3px;
-}
 
-.phase .other p, .info p, .parameters p {
-    font-family: 'Fira Sans Condensed', sans-serif;
-    font-size: 20px;
-    font-weight: 400;
-    text-align: justify;
-}
+/* Utils */
 
-.count {
-    display: inline-block;
-}
-
-.phase .count p {
-    color: #d2273b;
-}
-
-.parameters .count p {
-    color: #d2273b;
-}
-
-.name {
-    display: inline-block;
+.float-right {
+    float: right;
 }
