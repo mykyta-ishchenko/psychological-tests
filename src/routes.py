@@ -2,6 +2,7 @@ from flask import Blueprint, redirect, render_template, request
 
 from forms.emotional_burnout_boyko.form import Form as FormEBB
 from forms.ost_rusalov.form import Form as FormOSTR
+from forms.ayzenk.form import Form as FormAZNK
 from wokrer import Worker
 
 routes = Blueprint("route", __name__)
@@ -9,6 +10,7 @@ routes = Blueprint("route", __name__)
 worker = Worker(
     FormEBB(),
     FormOSTR(),
+    FormAZNK(),
 )
 
 
